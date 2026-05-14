@@ -30,7 +30,7 @@ class TextbeeService
         $response = Http::withHeaders([
             'x-api-key' => $this->apiKey,
             'Accept'    => 'application/json',
-        ])->timeout(5)->post($endpoint, $payload);
+        ])->timeout(60)->post($endpoint, $payload);
 
         if ($response->failed()) {
             throw CouldNotSendNotification::serviceRespondedWithAnError($response->body());
